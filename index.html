@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chronex</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: #0a0a0a;
+      color: #f5f5f5;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      padding: 25px 40px;
+      background: #050505;
+      border-bottom: 1px solid #1f1f1f;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: 'Playfair Display', serif;
+      letter-spacing: 6px;
+      color: #d4af37;
+      font-weight: 600;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+      background: radial-gradient(circle at center, #111 0%, #000 100%);
+    }
+
+    .hero h2 {
+      font-size: 48px;
+      margin-bottom: 10px;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .hero p {
+      color: #b5b5b5;
+      letter-spacing: 2px;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      padding: 50px;
+    }
+
+    .card {
+      background: #0f0f0f;
+      padding: 20px;
+      border: 1px solid #1e1e1e;
+      transition: 0.3s;
+      text-align: center;
+    }
+
+    .card:hover {
+      border-color: #d4af37;
+      transform: translateY(-5px);
+    }
+
+    /* IMAGE STYLE (IMPORTANT FOR LUXURY LOOK) */
+    .card img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      border: 1px solid #2a2a2a;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      font-family: 'Playfair Display', serif;
+      color: #ffffff;
+    }
+
+    .card p {
+      color: #aaa;
+    }
+
+    button {
+      padding: 12px;
+      width: 100%;
+      background: transparent;
+      color: #d4af37;
+      border: 1px solid #d4af37;
+      cursor: pointer;
+      margin-top: 15px;
+      letter-spacing: 2px;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #d4af37;
+      color: #000;
+    }
+
+    .cart {
+      padding: 30px;
+      background: #0b0b0b;
+      margin: 40px;
+      border: 1px solid #1f1f1f;
+    }
+
+    .cart h2 {
+      font-family: 'Playfair Display', serif;
+      color: #d4af37;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #555;
+      border-top: 1px solid #1f1f1f;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>CHRONEX</h1>
+  <div id="cartInfo">Cart: 0 | ₹0</div>
+</header>
+
+<section class="hero">
+  <h2>Luxury Redefined</h2>
+  <p>Minimal. Elegant. Timeless.</p>
+</section>
+
+<section class="products">
+  <div class="card">
+    <img src="Shadow watch.png" alt="Shadow Watch" />
+    <h3>Shadow Watch</h3>
+    <p>Black luxury timepiece</p>
+    <p>₹2000</p>
+    <button onclick="addToCart(2000)">ADD TO BAG</button>
+  </div>
+
+  <div class="card">
+    <img src="chronex chain.png" alt="Steel Chain" />
+    <h3>Steel Chain</h3>
+    <p>Premium stainless steel</p>
+    <p>₹1000</p>
+    <button onclick="addToCart(1000)">ADD TO BAG</button>
+  </div>
+
+  <div class="card">
+    <img src="chronex watch.png" alt="Nightfall Watch" />
+    <h3>Chronex Watch</h3>
+    <p>Signature dark edition</p>
+    <p>₹2500</p>
+    <button onclick="addToCart(2500)">ADD TO BAG</button>
+  </div>
+</section>
+
+<section class="cart">
+  <h2>Your Bag</h2>
+  <p id="totalItems">Items: 0</p>
+  <p id="totalPrice">Total: ₹0</p>
+  <button onclick="payNow()">PROCEED TO PAYMENT</button>
+</section>
+
+<footer>
+  © 2026 CHRONEX. All Rights Reserved.
+</footer>
+
+<script>
+  let cartCount = 0;
+  let total = 0;
+
+  function addToCart(price) {
+    cartCount++;
+    total += price;
+
+    document.getElementById("cartInfo").innerText =
+      `Cart: ${cartCount} | ₹${total}`;
+
+    document.getElementById("totalItems").innerText =
+      `Items: ${cartCount}`;
+
+    document.getElementById("totalPrice").innerText =
+      `Total: ₹${total}`;
+  }
+
+  function payNow() {
+    alert("Payment system not connected yet. Add Razorpay for real payments.");
+  }
+</script>
+
+</body>
+</html>
